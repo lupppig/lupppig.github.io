@@ -1,73 +1,63 @@
-
 import { Container } from '../components/Container';
 import { Section } from '../components/Section';
-import project1 from '../assets/project1.png';
-import project2 from '../assets/project2.png';
-
-const projects = [
-	{
-		title: 'Aether Framework',
-		description: 'A high-performance distributed systems framework built with Rust and Go.',
-		image: project1,
-		tags: ['Rust', 'Go', 'Distributed Systems'],
-	},
-	{
-		title: 'Lumina UI',
-		description: 'A minimalist design system focused on accessibility and performance.',
-		image: project2,
-		tags: ['React', 'TypeScript', 'Tailwind'],
-	},
-	{
-		title: 'Neon DB',
-		description: 'Next-generation lightweight document store for edge computing.',
-		image: project1, // Reusing for demo
-		tags: ['C++', 'Edge Computing', 'Database'],
-	},
-	{
-		title: 'Flux Dev',
-		description: 'An AI-powered development assistant for modern workflow automation.',
-		image: project2, // Reusing for demo
-		tags: ['Python', 'LLM', 'AutoGPT'],
-	},
-];
+import { projects } from '../data/portfolio';
 
 export const Projects: React.FC = () => {
 	return (
 		<Section id="projects">
 			<Container>
-				<div className="mb-20">
-					<h2 className="text-3xl font-bold mb-4">Selected Projects</h2>
+				<div className="mb-12">
+					<h2 className="text-3xl font-bold mb-4">Projects</h2>
 					<div className="h-1 w-12 bg-zinc-800"></div>
 				</div>
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20">
-					{projects.map((project, i) => (
-						<div key={i} className="group">
-							<div className="aspect-[16/10] bg-surface mb-8 overflow-hidden border border-zinc-900 group-hover:border-zinc-700 transition-all duration-500 grayscale group-hover:grayscale-0">
-								<img
-									src={project.image}
-									alt={project.title}
-									className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700"
-								/>
-							</div>
-							<div className="space-y-4">
-								<div className="flex gap-2">
-									{project.tags.map(tag => (
-										<span key={tag} className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold border border-zinc-800 px-2 py-0.5">
-											{tag}
-										</span>
-									))}
-								</div>
-								<h3 className="text-2xl font-bold tracking-tight group-hover:text-white transition-colors">
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+					{projects.map((project) => (
+						<a
+							key={project.title}
+							href={project.github}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="group block p-8 border border-zinc-900 bg-zinc-950/50 flex flex-col h-full transition-all duration-300 hover:border-zinc-700 hover:bg-zinc-900/40"
+						>
+							<div className="flex justify-between items-start mb-6">
+								<h3 className="text-xl font-bold text-white group-hover:text-white transition-colors">
 									{project.title}
 								</h3>
-								<p className="text-secondary leading-relaxed max-w-sm">
-									{project.description}
-								</p>
-								<a href="#" className="inline-block text-xs uppercase tracking-widest font-bold border-b border-zinc-800 pb-1 hover:border-white transition-colors">
-									Case Study
-								</a>
+								<span className="text-[10px] uppercase tracking-widest font-bold text-zinc-500 group-hover:text-zinc-300 transition-colors border border-zinc-800 px-3 py-1">
+									GitHub
+								</span>
 							</div>
-						</div>
+
+							<div className="flex flex-wrap gap-2 mb-6">
+								{project.tags.map((tag) => (
+									<span
+										key={tag}
+										className="text-[10px] uppercase font-mono tracking-wider text-zinc-500 px-2 py-0.5 border border-zinc-900 bg-zinc-900/30 group-hover:border-zinc-800 transition-colors"
+									>
+										{tag}
+									</span>
+								))}
+							</div>
+
+							<div className="space-y-6 flex-grow">
+								<div>
+									<span className="text-[10px] uppercase tracking-[0.2em] font-bold text-zinc-600 mb-2 block group-hover:text-zinc-400 transition-colors">
+										Objective
+									</span>
+									<p className="text-zinc-400 leading-relaxed text-sm group-hover:text-zinc-300 transition-colors">
+										{project.description}
+									</p>
+								</div>
+								<div>
+									<span className="text-[10px] uppercase tracking-[0.2em] font-bold text-zinc-600 mb-2 block group-hover:text-zinc-400 transition-colors">
+										Solution
+									</span>
+									<p className="text-zinc-500 leading-relaxed text-sm italic group-hover:text-zinc-400 transition-colors">
+										{project.problem}
+									</p>
+								</div>
+							</div>
+						</a>
 					))}
 				</div>
 			</Container>

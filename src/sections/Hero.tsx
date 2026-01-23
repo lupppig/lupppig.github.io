@@ -1,36 +1,40 @@
-
 import { Container } from '../components/Container';
 import { Section } from '../components/Section';
+import { personalInfo } from '../data/portfolio';
 
 export const Hero: React.FC = () => {
 	return (
-		<Section id="home" className="min-h-screen flex items-center pt-32">
+		<Section id="home" className="min-h-[50vh] flex items-center pt-8 bg-background">
 			<Container>
-				<div className="max-w-3xl">
-					<span className="text-zinc-500 text-xs uppercase tracking-[0.3em] font-bold mb-8 block">
-						Software Engineer & Designer
-					</span>
-					<h1 className="text-6xl md:text-8xl font-bold mb-10 leading-[0.9] tracking-tighter text-white">
-						Crafting the <br />
-						digital <span className="text-zinc-500 italic">void.</span>
+				<div className="max-w-2xl">
+					<h1 className="text-7xl font-bold tracking-tighter text-white mb-4">
+						{personalInfo.name}
 					</h1>
-					<p className="text-zinc-400 text-xl md:text-2xl leading-relaxed mb-16 max-w-xl font-medium">
-						Building minimal, high-performance web applications with a focus on
-						clean architecture and exceptional user experiences.
+					<h2 className="text-xl font-medium tracking-tight text-zinc-400 mb-10">
+						Backend Software Engineer
+					</h2>
+					<p className="text-zinc-500 text-lg leading-relaxed mb-16 font-mono">
+						Focusing on the architecture of resilient systems, distributed services,
+						and the development of internal tooling to streamline software delivery.
 					</p>
-					<div className="flex flex-wrap gap-8 items-center">
+					<div className="flex gap-10 font-mono text-[11px] uppercase tracking-widest font-bold">
 						<a
-							href="#projects"
-							className="px-10 py-5 bg-white text-black font-bold text-xs tracking-[0.2em] uppercase hover:bg-zinc-200 transition-all"
+							href={personalInfo.socials.github}
+							className="text-zinc-600 hover:text-white transition-colors"
 						>
-							Selected Work
+							GitHub
 						</a>
 						<a
-							href="#contact"
-							className="group flex items-center gap-3 text-xs uppercase tracking-[0.2em] font-bold text-zinc-300"
+							href={personalInfo.socials.linkedin}
+							className="text-zinc-600 hover:text-white transition-colors"
 						>
-							Get in touch
-							<span className="w-8 h-px bg-zinc-700 group-hover:w-12 transition-all"></span>
+							LinkedIn
+						</a>
+						<a
+							href={`mailto:${personalInfo.email}`}
+							className="text-zinc-600 hover:text-white transition-colors"
+						>
+							Email
 						</a>
 					</div>
 				</div>
