@@ -4,7 +4,7 @@ import { personalInfo } from '../data/portfolio';
 
 export const Hero: React.FC = () => {
 	return (
-		<Section id="home" className="min-h-[50vh] flex items-center pt-8 bg-background">
+		<Section id="home" className="min-h-[50vh] flex items-center pt-32 md:pt-48 bg-background">
 			<Container>
 				<div className="max-w-2xl">
 					<h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-white mb-4">

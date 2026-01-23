@@ -17,12 +17,12 @@ export const Navigation: React.FC = () => {
 
 	return (
 		<nav
-			className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled || isMenuOpen ? 'py-4 glass border-b border-zinc-900/50' : 'py-8'
+			className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled || isMenuOpen ? 'py-4 glass border-b border-zinc-900/50' : 'py-6 md:py-8'
 				}`}
 		>
 			<div className="max-w-4xl mx-auto px-6 md:px-8 flex justify-between items-center text-zinc-400">
-				<div className="text-white font-bold tracking-tighter text-xl z-50">
-					<a href="#home" onClick={() => setIsMenuOpen(false)}>{initials}.</a>
+				<div className="text-white font-bold tracking-tighter text-xl z-50 relative">
+					<a href="#home" onClick={() => setIsMenuOpen(false)} className="hover:text-zinc-300 transition-colors">{initials}.</a>
 				</div>
 
 				{/* Mobile Menu Toggle */}
