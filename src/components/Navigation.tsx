@@ -27,7 +27,7 @@ export const Navigation: React.FC = () => {
 
 				{/* Mobile Menu Toggle */}
 				<button
-					className="md:hidden z-50 text-zinc-400 hover:text-white transition-colors p-2"
+					className="md:hidden z-50 text-zinc-200 hover:text-white transition-colors p-2"
 					onClick={() => setIsMenuOpen(!isMenuOpen)}
 					aria-label="Toggle menu"
 				>
