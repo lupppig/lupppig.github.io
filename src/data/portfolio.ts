@@ -10,6 +10,7 @@ export const personalInfo = {
 		github: 'https://github.com/lupppig',
 		linkedin: 'https://www.linkedin.com/in/kelani-darasimi/',
 		x: 'https://x.com/taffffffffik',
+		phone: '+2349041563211'
 	},
 };
 
