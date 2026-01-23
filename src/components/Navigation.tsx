@@ -20,14 +20,22 @@ export const Navigation: React.FC = () => {
 			className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled || isMenuOpen ? 'py-4 glass border-b border-zinc-900/50' : 'py-6 md:py-8'
 				}`}
 		>
-			<div className="max-w-4xl mx-auto px-6 md:px-8 flex justify-between items-center text-zinc-400">
-				<div className="text-white font-bold tracking-tighter text-xl z-50 relative">
+			{/* Full-screen backdrop for clicking outside */}
+			{isMenuOpen && (
+				<div
+					className="fixed inset-0 h-screen w-screen z-40 bg-black/20 md:hidden"
+					onClick={() => setIsMenuOpen(false)}
+				/>
+			)}
+
+			<div className="max-w-4xl mx-auto px-6 md:px-8 flex justify-between items-center text-zinc-400 relative z-50">
+				<div className="text-white font-bold tracking-tighter text-xl relative">
 					<a href="#home" onClick={() => setIsMenuOpen(false)} className="hover:text-zinc-300 transition-colors">{initials}.</a>
 				</div>
 
 				{/* Mobile Menu Toggle */}
 				<button
-					className="md:hidden z-50 text-zinc-200 hover:text-white transition-colors p-2"
+					className="md:hidden relative text-zinc-200 hover:text-white transition-colors p-2"
 					onClick={() => setIsMenuOpen(!isMenuOpen)}
 					aria-label="Toggle menu"
 				>
@@ -53,16 +61,8 @@ export const Navigation: React.FC = () => {
 				</ul>
 			</div>
 
-			{/* Desktop Backdrop for click-outside (Alternative to full-screen) */}
-			{isMenuOpen && (
-				<div
-					className="fixed inset-0 z-40 md:hidden bg-black/5"
-					onClick={() => setIsMenuOpen(false)}
-				/>
-			)}
-
 			{/* Compact Mobile Menu Dropdown */}
-			<div className={`absolute top-full right-6 mt-2 w-48 bg-zinc-950/90 backdrop-blur-xl border border-zinc-800/50 rounded-xl shadow-2xl overflow-hidden transition-all duration-300 md:hidden z-50 ${isMenuOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
+			<div className={`absolute top-full right-6 mt-2 w-48 bg-zinc-950 border border-zinc-800/50 rounded-xl shadow-2xl overflow-hidden transition-all duration-300 md:hidden z-50 ${isMenuOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
 				<div className="flex flex-col py-2">
 					{navigationLinks.map((link) => (
 						<a
