@@ -37,7 +37,7 @@ function App() {
 				<div className="reveal"><Contact /></div>
 			</main>
 			<footer className="py-12 border-t border-zinc-900">
-				<div className="max-w-4xl mx-auto px-6 md:px-8 flex justify-between items-center text-xs text-secondary uppercase tracking-widest font-medium">
+				<div className="max-w-4xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] md:text-xs text-secondary uppercase tracking-widest font-medium text-center md:text-left">
 					<p>© 2026 Darasimi</p>
 					<p>Build with love lmaooooooooooo</p>
 				</div>
