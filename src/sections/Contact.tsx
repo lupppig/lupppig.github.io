@@ -12,8 +12,8 @@ export const Contact: React.FC = () => {
 						I am available for technical discussions or collaboration on
 						backend infrastructure and distributed systems.
 					</p>
-					<div className="space-y-10 md:space-y-12">
-						<div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
+					<div className="space-y-12 md:space-y-16">
+						<div className="flex flex-col gap-10 md:gap-14">
 							<div>
 								<span className="text-[10px] uppercase tracking-[0.3em] font-bold text-zinc-500 mb-4 block">Email</span>
 								<a
