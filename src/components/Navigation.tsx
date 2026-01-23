@@ -53,15 +53,23 @@ export const Navigation: React.FC = () => {
 				</ul>
 			</div>
 
+			{/* Desktop Backdrop for click-outside (Alternative to full-screen) */}
+			{isMenuOpen && (
+				<div
+					className="fixed inset-0 z-40 md:hidden bg-black/5"
+					onClick={() => setIsMenuOpen(false)}
+				/>
+			)}
+
 			{/* Compact Mobile Menu Dropdown */}
-			<div className={`absolute top-full right-6 mt-2 w-48 glass border border-zinc-800/50 rounded-xl overflow-hidden transition-all duration-300 md:hidden z-50 ${isMenuOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
+			<div className={`absolute top-full right-6 mt-2 w-48 bg-zinc-950/90 backdrop-blur-xl border border-zinc-800/50 rounded-xl shadow-2xl overflow-hidden transition-all duration-300 md:hidden z-50 ${isMenuOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
 				<div className="flex flex-col py-2">
 					{navigationLinks.map((link) => (
 						<a
 							key={link.name}
 							href={link.href}
 							onClick={() => setIsMenuOpen(false)}
-							className="px-6 py-4 text-[10px] uppercase tracking-[0.2em] font-bold text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-all duration-200"
+							className="px-6 py-4 text-[10px] uppercase tracking-[0.2em] font-bold text-zinc-400 hover:text-white hover:bg-zinc-900/50 transition-all duration-200"
 						>
 							{link.name}
 						</a>
