@@ -14,8 +14,7 @@ export const Hero: React.FC = () => {
 						Backend Software Engineer
 					</h2>
 					<p className="text-zinc-500 text-base md:text-lg leading-relaxed mb-12 md:mb-16 font-mono">
-						Focusing on the architecture of resilient systems, distributed services,
-						and the development of internal tooling to streamline software delivery.
+						{personalInfo.headline}
 					</p>
 					<div className="flex flex-wrap gap-6 md:gap-10 font-mono text-[11px] uppercase tracking-widest font-bold">
 						<a

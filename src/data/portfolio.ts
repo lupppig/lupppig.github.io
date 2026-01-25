@@ -4,7 +4,8 @@ export const personalInfo = {
 	name: 'Darasimi',
 	initials: 'Ka',
 	role: 'Software Engineer',
-	bio: 'Backend Software Engineer expert in Go, Python, and distributed architecture. I build resilient, low-level infrastructure and developer tools that prioritize efficiency and observability. Committed to engineering scalable systems where every architectural decision is backed by data and driven by performance.',
+	headline: 'I love to build resilient systems and the internal tools that make shipping code a lot easier',
+	bio: 'I specialize in building tough, reliable architecture and the behind-the-scenes tools that keep everything running smoothly. I enjoy taking the complexity out of distributed systems so that delivering software is faster and less stressful for everyone.',
 	email: 'kelanidarasimi9@gmail.com',
 	socials: {
 		github: 'https://github.com/lupppig',
@@ -46,10 +47,10 @@ export const skills = [
 ];
 
 export const philosophy = [
-	'Prioritize reliability and simplicity over complex abstractions.',
-	'Preference for boring, proven technology that solves problems predictably.',
-	'Deep focus on observability, failure modes, and system resilience.',
-	'Dedicated to building tools that improve the developer experience.',
+	'Simple over clever: I build for readability and maintenance, not to show off complexity.',
+	'Proven over hype: I use reliable, "boring" tech because it’s stable and gets the job done.',
+	'Design for failure: I assume things will break, so I build systems that are easy to watch and quick to fix.',
+	'Built for humans: I create tools and documentation that make life easier for the people using them',
 ];
 
 export const navigationLinks = [
