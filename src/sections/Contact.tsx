@@ -10,7 +10,7 @@ export const Contact: React.FC = () => {
 					<h2 className="text-3xl font-bold mb-6 md:mb-8">Inquiry</h2>
 					<p className="text-zinc-400 text-lg md:text-xl leading-relaxed mb-10 md:mb-12">
 						I am available for technical discussions or collaboration on
-						backend infrastructure and distributed systems.
+						backend infrastructure and event driven architecture.
 					</p>
 					<div className="space-y-12 md:space-y-16">
 						<div className="flex flex-col gap-10 md:gap-14">

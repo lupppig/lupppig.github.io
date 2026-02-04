@@ -3,9 +3,9 @@
 export const personalInfo = {
 	name: 'Darasimi',
 	initials: 'Ka',
-	role: 'Software Engineer',
+	role: 'Go Backend Developer',
 	headline: 'I love to build resilient systems and the internal tools that make shipping code a lot easier',
-	bio: 'I specialize in building tough, reliable architecture and the behind-the-scenes tools that keep everything running smoothly. I enjoy taking the complexity out of distributed systems so that delivering software is faster and less stressful for everyone.',
+	bio: 'I am a backend developer who loves building event driven architecture and the behind-the-scenes tools that keep everything running smoothly. I enjoy taking the complexity out of systems so that delivering software is faster and less stressful for everyone.',
 	email: 'kelanidarasimi9@gmail.com',
 	socials: {
 		github: 'https://github.com/lupppig',
@@ -36,6 +36,13 @@ export const projects = [
 		problem: 'Reduces redundant network latency and bandwidth usage by caching full HTTP responses with an integrated LRU eviction strategy.',
 		github: 'https://github.com/lupppig/cachio',
 		tags: ['Python', 'Caching', 'uv'],
+	},
+	{
+		title: 'dbackup',
+		description: 'A robust database backup tool with support for multiple engines and deduplication.',
+		problem: 'Enables concurrent backups for PostgreSQL, MySQL, Redis, and SQLite with local and remote target support.',
+		github: 'https://github.com/lupppig/dbackup',
+		tags: ['Go', 'Database', 'Backup'],
 	},
 ];
 
