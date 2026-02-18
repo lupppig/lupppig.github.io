@@ -1,49 +1,7 @@
-import { useRef, useEffect } from 'react';
 import { projects } from '../data/portfolio';
 
 export const Projects: React.FC = () => {
-	const scrollRef = useRef<HTMLDivElement>(null);
-
-	useEffect(() => {
-		const container = scrollRef.current;
-		if (!container) return;
-
-		let animationId: number;
-		let isPaused = false;
-
-		const step = () => {
-			if (!isPaused && container) {
-				container.scrollLeft += 0.5;
-
-				// When we've scrolled past the first set of cards, jump back seamlessly
-				const halfScroll = container.scrollWidth / 2;
-				if (container.scrollLeft >= halfScroll) {
-					container.scrollLeft = 0;
-				}
-			}
-			animationId = requestAnimationFrame(step);
-		};
-
-		const pause = () => { isPaused = true; };
-		const resume = () => { isPaused = false; };
-
-		container.addEventListener('mouseenter', pause);
-		container.addEventListener('mouseleave', resume);
-		container.addEventListener('touchstart', pause);
-		container.addEventListener('touchend', resume);
-
-		animationId = requestAnimationFrame(step);
-
-		return () => {
-			cancelAnimationFrame(animationId);
-			container.removeEventListener('mouseenter', pause);
-			container.removeEventListener('mouseleave', resume);
-			container.removeEventListener('touchstart', pause);
-			container.removeEventListener('touchend', resume);
-		};
-	}, []);
-
-	// Duplicate cards for seamless infinite scroll
+	// Duplicate for seamless loop
 	const allCards = [...projects, ...projects];
 
 	return (
@@ -54,10 +12,13 @@ export const Projects: React.FC = () => {
 				</h2>
 			</div>
 
-			<div className="px-6 md:px-12 lg:px-24 xl:px-48">
+			{/* Marquee container */}
+			<div className="overflow-hidden">
 				<div
-					ref={scrollRef}
-					className="flex gap-5 overflow-x-hidden no-scrollbar pb-4"
+					className="flex gap-5 pl-6 md:pl-12 lg:pl-24 xl:pl-48 animate-marquee hover:[animation-play-state:paused]"
+					style={{
+						width: 'max-content',
+					}}
 				>
 					{allCards.map((project, idx) => (
 						<div
