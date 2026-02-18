@@ -15,6 +15,21 @@ export const personalInfo = {
 	},
 };
 
+export const primaryTechs = [
+	{ name: 'Go', color: 'blue' as const },
+	{ name: 'Ts', color: 'blue' as const },
+	{ name: 'Python', color: 'yellow' as const },
+];
+
+export const interests = [
+	'Web Servers',
+	'APIs && Databases',
+	'Event-Driven Architecture',
+	'Message Brokers',
+	'Distributed Systems',
+	'CI/CD Pipelines',
+];
+
 export const projects = [
 	{
 		title: 'notifyctl',
@@ -44,6 +59,13 @@ export const projects = [
 		github: 'https://github.com/lupppig/dbackup',
 		tags: ['Go', 'Database', 'Backup'],
 	},
+	{
+		title: 'skedulr',
+		description: 'A production-grade background task scheduler for Go with Redis persistence, priority queues, retry policies, workflow DAGs, and a real-time operations dashboard.',
+		problem: 'Provides reliable task execution with lease-based heartbeats, dead task recovery, and a built-in web UI for monitoring and scaling worker pools.',
+		github: 'https://github.com/lupppig/skedulr',
+		tags: ['Go', 'Redis', 'Scheduler', 'Dashboard'],
+	},
 ];
 
 export const skills = [
@@ -55,15 +77,7 @@ export const skills = [
 
 export const philosophy = [
 	'Simple over clever: I build for readability and maintenance, not to show off complexity.',
-	'Proven over hype: I use reliable, "boring" tech because it’s stable and gets the job done.',
+	'Proven over hype: I use reliable, "boring" tech because it\'s stable and gets the job done.',
 	'Design for failure: I assume things will break, so I build systems that are easy to watch and quick to fix.',
 	'Built for humans: I create tools and documentation that make life easier for the people using them',
-];
-
-export const navigationLinks = [
-	{ name: 'Projects', href: '#projects' },
-	{ name: 'Skills', href: '#skills' },
-	{ name: 'Philosophy', href: '#philosophy' },
-	{ name: 'About', href: '#about' },
-	{ name: 'Contact', href: '#contact' },
 ];

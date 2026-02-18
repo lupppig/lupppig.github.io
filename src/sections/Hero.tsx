@@ -1,43 +1,71 @@
-import { Container } from '../components/Container';
-import { Section } from '../components/Section';
-import { personalInfo } from '../data/portfolio';
+import { personalInfo, primaryTechs, interests, philosophy } from '../data/portfolio';
+
+const badgeColors = {
+	blue: 'bg-blue-500 text-white',
+	yellow: 'bg-yellow-500 text-black',
+} as const;
 
 export const Hero: React.FC = () => {
 	return (
-		<Section id="home" className="min-h-[50vh] flex items-center pt-32 md:pt-48 bg-background">
-			<Container>
-				<div className="max-w-2xl">
-					<h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-white mb-4">
-						{personalInfo.name}
-					</h1>
-					<h2 className="text-lg md:text-xl font-medium tracking-tight text-zinc-400 mb-8 md:mb-10">
-						Backend Software Engineer
-					</h2>
-					<p className="text-zinc-500 text-base md:text-lg leading-relaxed mb-12 md:mb-16 font-mono">
+		<section id="home" className="pt-16 md:pt-24 pb-8 md:pb-12">
+			<div className="px-6 md:px-12 lg:px-24 xl:px-48">
+				{/* Casual intro */}
+				<div className="space-y-1 mb-8 text-sm md:text-base leading-relaxed">
+					<p className="text-zinc-300">
+						yoo this is{' '}
+						<span className="text-white font-bold underline underline-offset-4 decoration-zinc-600">
+							{personalInfo.name}
+						</span>
+						, I like to build cool stuff using{' '}
+						{primaryTechs.map((tech, i) => (
+							<span key={tech.name}>
+								<span className={`${badgeColors[tech.color]} px-1.5 py-0.5 rounded text-xs font-bold inline-block`}>
+									{tech.name}
+								</span>
+								{i < primaryTechs.length - 1 && (
+									<span className="text-zinc-500">
+										{i === primaryTechs.length - 2 ? ' and ' : ' / '}
+									</span>
+								)}
+							</span>
+						))}
+					</p>
+					<p className="text-zinc-400">
 						{personalInfo.headline}
 					</p>
-					<div className="flex flex-wrap gap-6 md:gap-10 font-mono text-[11px] uppercase tracking-widest font-bold">
-						<a
-							href={personalInfo.socials.github}
-							className="text-zinc-600 hover:text-white transition-colors"
-						>
-							GitHub
-						</a>
-						<a
-							href={personalInfo.socials.linkedin}
-							className="text-zinc-600 hover:text-white transition-colors"
-						>
-							LinkedIn
-						</a>
-						<a
-							href={`mailto:${personalInfo.email}`}
-							className="text-zinc-600 hover:text-white transition-colors"
-						>
-							Email
-						</a>
-					</div>
 				</div>
-			</Container>
-		</Section>
+
+				{/* What I am into */}
+				<div className="mb-8">
+					<p className="text-zinc-300 text-sm mb-3 font-bold">What I am into :</p>
+					<ul className="space-y-1 text-sm text-zinc-400">
+						{interests.map((interest) => (
+							<li key={interest} className="flex items-center gap-2">
+								<span className="text-zinc-600">•</span>
+								{interest}
+							</li>
+						))}
+					</ul>
+				</div>
+
+				{/* About / Bio paragraph */}
+				<div className="space-y-4 text-sm text-zinc-400 leading-relaxed mb-6">
+					<p>{personalInfo.bio}</p>
+				</div>
+
+				{/* Philosophy — inline */}
+				<div className="border-t border-zinc-900 pt-6 mb-2">
+					<p className="text-zinc-300 text-sm mb-4 font-bold">How I build :</p>
+					<ul className="space-y-3 text-sm text-zinc-500">
+						{philosophy.map((point, i) => (
+							<li key={i} className="flex gap-3 items-start">
+								<span className="text-zinc-700 font-mono text-xs mt-0.5 shrink-0">0{i + 1}</span>
+								<span className="text-zinc-400">{point}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		</section>
 	);
 };
