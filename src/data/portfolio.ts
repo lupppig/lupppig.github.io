@@ -39,11 +39,11 @@ export const projects = [
 		tags: ['Go', 'gRPC', 'NATS', 'Docker'],
 	},
 	{
-		title: 'go-dispatcher',
-		description: 'A scalable job dispatcher implementing the worker pool pattern in Go.',
-		problem: 'Manages high-concurrency background workloads by pooling resources, preventing system exhaustion, and providing observability.',
-		github: 'https://github.com/lupppig/go-dispatcher',
-		tags: ['Go', 'Concurrency', 'Worker Pool'],
+		title: 'primer',
+		description: 'A powerful system design simulator tailored for visualizing and load-testing architectures.',
+		problem: 'Simplifies the evaluation of complex, high-scale systems by simulating traffic, latency, and resource utilization in real-time.',
+		github: 'https://github.com/lupppig/primer',
+		tags: ['TypeScript', 'Python', 'Simulation', 'System Design'],
 	},
 	{
 		title: 'cachio',
