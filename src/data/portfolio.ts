@@ -4,8 +4,7 @@ export const personalInfo = {
 	name: 'Darasimi',
 	initials: 'Ka',
 	role: 'Go Backend Developer',
-	headline: 'I love to build resilient systems and the internal tools that make shipping code a lot easier',
-	bio: 'I am a backend developer who loves building event driven architecture and the behind-the-scenes tools that keep everything running smoothly. I enjoy taking the complexity out of systems so that delivering software is faster and less stressful for everyone.',
+	bio: 'I build resilient backend systems and the tooling around them — the quiet infrastructure that keeps products running and engineers shipping fast.',
 	email: 'kelanidarasimi9@gmail.com',
 	socials: {
 		github: 'https://github.com/lupppig',

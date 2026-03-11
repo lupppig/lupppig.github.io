@@ -1,69 +1,77 @@
-import { personalInfo, primaryTechs, interests, philosophy } from '../data/portfolio';
-
-const badgeColors = {
-	blue: 'bg-blue-500 text-white',
-	yellow: 'bg-yellow-500 text-black',
-} as const;
+import { personalInfo, primaryTechs, philosophy } from '../data/portfolio';
+import { HackerText } from '../components/HackerText';
+import { motion } from 'framer-motion';
 
 export const Hero: React.FC = () => {
 	return (
-		<section id="home" className="pt-16 md:pt-24 pb-8 md:pb-12">
-			<div className="px-6 md:px-12 lg:px-24 xl:px-48">
+		<section id="home" className="pt-24 pb-12 relative">
+			<div className="px-6 md:px-12 lg:px-24">
+				{/* Top Metadata */}
+				<div className="flex gap-4 mb-12 text-[10px] font-mono text-zinc-500 overflow-hidden">
+					<div className="flex items-center gap-2">
+						<span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+						SYSTEM_CORE: ACTIVE
+					</div>
+					<div>|</div>
+					<div>UPTIME: 99.9%</div>
+					<div>|</div>
+					<div className="hidden sm:block">LOCAL_TIME: {new Date().toLocaleTimeString()}</div>
+				</div>
+
 				{/* Casual intro */}
-				<div className="space-y-1 mb-8 text-sm md:text-base leading-relaxed">
-					<p className="text-zinc-300">
-						yoo this is{' '}
-						<span className="text-white font-bold underline underline-offset-4 decoration-zinc-600">
-							{personalInfo.name}
-						</span>
-						, I like to build cool stuff using{' '}
-						{primaryTechs.map((tech, i) => (
-							<span key={tech.name}>
-								<span className={`${badgeColors[tech.color]} px-1.5 py-0.5 rounded text-xs font-bold inline-block`}>
-									{tech.name}
-								</span>
-								{i < primaryTechs.length - 1 && (
-									<span className="text-zinc-500">
-										{i === primaryTechs.length - 2 ? ' and ' : ' / '}
+				<div className="mb-12">
+					<h1 className="text-4xl md:text-6xl mb-4 tracking-tighter">
+						<HackerText text={personalInfo.name.toUpperCase()} speed={100} />
+					</h1>
+				</div>
+
+				{/* Tech Stacks */}
+				<div className="mb-12">
+					<p className="text-zinc-500 text-[10px] font-mono mb-4">LOADED_MODULES:</p>
+					<div className="flex flex-wrap gap-3">
+						{primaryTechs.map((tech) => (
+							<motion.span
+								key={tech.name}
+								whileHover={{ scale: 1.05, y: -2 }}
+								className={`px-3 py-1 text-xs font-bold border border-white/10 cyber-border group hover:border-blue-500/50 transition-all`}
+							>
+								<span className="text-white group-hover:text-blue-400">{tech.name}</span>
+							</motion.span>
+						))}
+					</div>
+				</div>
+
+				{/* Content Grid */}
+				<div className="grid md:grid-cols-2 gap-12 border-t border-white/5 pt-12">
+					<div>
+						<p className="text-zinc-500 text-[10px] font-mono mb-4">PROCESS_BIO:</p>
+						<div className="space-y-6">
+							<p className="text-sm text-zinc-300 leading-relaxed italic">
+								"I build resilient backend systems and the tooling around them — the quiet infrastructure that keeps products running and engineers shipping fast."
+							</p>
+							<div className="space-y-4 pt-4 border-t border-white/5">
+								<p className="text-xs text-blue-400 font-mono italic border-l-2 border-blue-500/30 pl-4">
+									"Good engineers ship features. Great engineers build systems that keep shipping without them."
+								</p>
+								<p className="text-xs text-zinc-500 font-mono italic border-l-2 border-zinc-800 pl-4">
+									“The real flex in engineering isn’t complexity — it’s making a system so simple nobody notices how hard it was.”
+								</p>
+							</div>
+						</div>
+					</div>
+					<div>
+						<p className="text-zinc-500 text-[10px] font-mono mb-4">DEPLOYMENT_STRATEGY:</p>
+						<ul className="space-y-4">
+							{philosophy.map((point, i) => (
+								<li key={i} className="flex gap-4 items-start group">
+									<span className="text-blue-500 font-mono text-[10px] mt-1 shrink-0 bg-blue-500/10 px-1">0{i + 1}</span>
+									<span className="text-xs text-zinc-400 group-hover:text-zinc-200 transition-colors leading-relaxed">
+										{point}
 									</span>
-								)}
-							</span>
-						))}
-					</p>
-					<p className="text-zinc-400">
-						{personalInfo.headline}
-					</p>
-				</div>
-
-				{/* What I am into */}
-				<div className="mb-8">
-					<p className="text-zinc-300 text-sm mb-3 font-bold">What I am into :</p>
-					<ul className="space-y-1 text-sm text-zinc-400">
-						{interests.map((interest) => (
-							<li key={interest} className="flex items-center gap-2">
-								<span className="text-zinc-600">•</span>
-								{interest}
-							</li>
-						))}
-					</ul>
-				</div>
-
-				{/* About / Bio paragraph */}
-				<div className="space-y-4 text-sm text-zinc-400 leading-relaxed mb-6">
-					<p>{personalInfo.bio}</p>
-				</div>
-
-				{/* Philosophy — inline */}
-				<div className="border-t border-zinc-900 pt-6 mb-2">
-					<p className="text-zinc-300 text-sm mb-4 font-bold">How I build :</p>
-					<ul className="space-y-3 text-sm text-zinc-500">
-						{philosophy.map((point, i) => (
-							<li key={i} className="flex gap-3 items-start">
-								<span className="text-zinc-700 font-mono text-xs mt-0.5 shrink-0">0{i + 1}</span>
-								<span className="text-zinc-400">{point}</span>
-							</li>
-						))}
-					</ul>
+								</li>
+							))}
+						</ul>
+					</div>
 				</div>
 			</div>
 		</section>

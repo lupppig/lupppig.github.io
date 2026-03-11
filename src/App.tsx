@@ -1,35 +1,26 @@
 import { Hero } from './sections/Hero';
 import { Projects } from './sections/Projects';
 import { Contact } from './sections/Contact';
-import { AsciiBackground } from './components/AsciiBackground';
-import { useEffect, useRef } from 'react';
+import { DynamicAscii } from './components/DynamicAscii';
+import { ThreeScene } from './components/ThreeScene';
 
 function App() {
-	const observerRef = useRef<IntersectionObserver | null>(null);
-
-	useEffect(() => {
-		observerRef.current = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					entry.target.classList.add('visible');
-				}
-			});
-		}, { threshold: 0.1 });
-
-		const elements = document.querySelectorAll('.reveal');
-		elements.forEach((el) => observerRef.current?.observe(el));
-
-		return () => observerRef.current?.disconnect();
-	}, []);
-
 	return (
-		<AsciiBackground>
-			<main>
-				<div className="reveal"><Hero /></div>
-				<div className="reveal"><Projects /></div>
-				<div className="reveal"><Contact /></div>
+		<div className="relative min-h-screen">
+			{/* High-tech Background Layer */}
+			<DynamicAscii />
+			<ThreeScene />
+
+			{/* Overlay Effects */}
+			<div className="scanner-line" />
+			<div className="crt-overlay" />
+
+			<main className="relative z-10 max-w-7xl mx-auto">
+				<Hero />
+				<Projects />
+				<Contact />
 			</main>
-		</AsciiBackground>
+		</div>
 	);
 }
 
