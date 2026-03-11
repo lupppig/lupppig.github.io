@@ -1,111 +1,105 @@
 import { personalInfo, primaryTechs, philosophy } from '../data/portfolio';
 import { HackerText } from '../components/HackerText';
-import { motion } from 'framer-motion';
-import { AsciiBox } from '../components/AsciiBox';
-import { AsciiDivider } from '../components/AsciiDivider';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 export const Hero: React.FC = () => {
+	const { scrollY } = useScroll();
+	const scrollIndicatorOpacity = useTransform(scrollY, [0, 100], [0.3, 0]);
+
 	const asciiLogo = `
-  _      _   _ _____ _____ _____ _____ _____ 
- | |    | | | |  __ \\  __ \\  __ \\_   _/ ____|
- | |    | | | | |__) | |__) | |__) || | |  __ 
- | |    | | | |  ___/|  ___/|  ___/ | | | |_ |
- | |____| |_| | |    | |    | |    _| |_|__| |
- |______|\\___/|_|    |_|    |_|   |_____\\____|
+██╗     ██╗   ██╗██████╗ ██████╗ ██████╗ ██╗ ██████╗ 
+██║     ██║   ██║██╔══██╗██╔══██╗██╔══██╗██║██╔════╝ 
+██║     ██║   ██║██████╔╝██████╔╝██████╔╝██║██║  ███╗
+██║     ██║   ██║██╔═══╝ ██╔═══╝ ██╔═══╝ ██║██║   ██║
+███████╗╚██████╔╝██║     ██║     ██║     ██║╚██████╔╝
+╚══════╝ ╚═════╝ ╚═╝     ╚═╝     ╚═╝     ╚═╝ ╚═════╝ 
 	`;
 
 	return (
-		<section id="home" className="pt-24 pb-12 relative">
-			<div className="px-6 md:px-12 lg:px-24">
-				{/* ASCII Branding */}
-				<div className="mb-8 overflow-hidden hidden md:block">
-					<motion.a
+		<section id="home" className="min-h-screen flex flex-col justify-center relative px-6 md:px-12 lg:px-24">
+			{/* Top Metadata HUD */}
+			<div className="absolute top-12 left-6 md:left-12 lg:left-24 right-6 md:right-12 lg:right-24 flex justify-between items-start font-mono text-[10px] text-blue-500/50 uppercase tracking-widest">
+				<div className="space-y-1">
+					<div>System_Core: v1.0.4-stable</div>
+					<div>Memory_Usage: 24% [||........]</div>
+				</div>
+				<div className="text-right space-y-1">
+					<div>Location: 6.5244° N, 3.3792° E</div>
+					<div>Uptime: 99.99%</div>
+				</div>
+			</div>
+
+			<div className="max-w-4xl">
+				{/* ASCII Branding - Clickable */}
+				<motion.div
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					className="mb-12 hidden md:block"
+				>
+					<a
 						href={personalInfo.socials.github}
 						target="_blank"
 						rel="noopener noreferrer"
-						whileHover={{ scale: 1.02, color: '#3b82f6' }}
-						className="block cursor-pointer"
+						className="inline-block group"
 					>
-						<pre className="text-[6px] leading-[6px] text-blue-500/60 font-mono transition-colors">
+						<pre className="text-[7px] leading-[8px] text-blue-500/80 font-mono drop-shadow-[0_0_15px_rgba(59,130,246,0.3)] group-hover:text-blue-400 group-hover:drop-shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all cursor-pointer">
 							{asciiLogo}
 						</pre>
-					</motion.a>
-				</div>
+					</a>
+				</motion.div>
 
-				{/* Top Metadata */}
-				<div className="flex gap-4 mb-12 text-[10px] font-mono text-zinc-500 overflow-hidden">
-					<div className="flex items-center gap-2">
-						<span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-						SYSTEM_CORE: ACTIVE
-					</div>
-					<AsciiDivider className="w-24 hidden sm:flex" />
-					<div className="hidden sm:block">UPTIME: 99.9%</div>
-					<AsciiDivider className="w-24 hidden lg:flex" />
-					<div className="hidden sm:block">LOCAL_TIME: {new Date().toLocaleTimeString()}</div>
-				</div>
-
-				{/* Casual intro */}
+				{/* Identity */}
 				<div className="mb-12">
-					<h1 className="text-4xl md:text-8xl mb-4 tracking-tighter">
+					<h1 className="text-5xl md:text-8xl mb-2 tracking-tighter text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">
 						<HackerText text={personalInfo.name.toUpperCase()} speed={100} />
 					</h1>
-					<div className="flex items-center gap-4 text-zinc-500 font-mono text-xs">
-						<span className="text-blue-500">{">"}</span>
-						<span>{personalInfo.role.toUpperCase()}</span>
-						<span className="w-2 h-[1px] bg-zinc-800" />
-						<span className="text-zinc-600">v1.0.4-stable</span>
+					<div className="flex items-center gap-4 text-zinc-500 font-mono text-sm">
+						<span className="text-blue-500 animate-pulse">{">"}</span>
+						<span className="text-zinc-200 font-bold tracking-widest">{personalInfo.role.toUpperCase()}</span>
+						<span className="w-8 h-[1px] bg-zinc-800" />
+						<div className="flex gap-2">
+							{primaryTechs.map((tech) => (
+								<span key={tech.name} className="text-[10px] text-blue-500/40 uppercase">[{tech.name}]</span>
+							))}
+						</div>
 					</div>
 				</div>
 
-				{/* Tech Stacks */}
-				<div className="mb-12">
-					<div className="flex flex-wrap gap-3">
-						{primaryTechs.map((tech) => (
-							<motion.span
-								key={tech.name}
-								whileHover={{ scale: 1.05, y: -2 }}
-								className={`px-3 py-1 text-xs font-bold border border-white/10 cyber-border group hover:border-blue-500/50 transition-all bg-black/40`}
-							>
-								<span className="text-white group-hover:text-blue-400">{tech.name}</span>
-							</motion.span>
-						))}
-					</div>
-				</div>
-
-				{/* Content Grid */}
-				<div className="grid md:grid-cols-2 gap-12 border-t border-white/5 pt-12">
+				{/* Bio & Philosophy Grid */}
+				<div className="grid md:grid-cols-2 gap-16 mt-12 pt-12 border-t border-blue-500/10">
 					<div>
-						<AsciiBox title="PROCESS_BIO" borderColor="border-blue-500/20">
-							<div className="space-y-6">
-								<p className="text-sm text-zinc-300 leading-relaxed italic">
-									"{personalInfo.bio}"
-								</p>
-								<div className="space-y-4 pt-4 border-t border-white/5">
-									<p className="text-xs text-blue-400 font-mono italic border-l-2 border-blue-500/30 pl-4">
-										"Good engineers ship features. Great engineers build systems that keep shipping without them."
-									</p>
-									<p className="text-xs text-zinc-500 font-mono italic border-l-2 border-zinc-800 pl-4">
-										“The real flex in engineering isn’t complexity — it’s making a system so simple nobody notices how hard it was.”
+						<div className="text-[10px] font-mono text-blue-500/40 mb-4 uppercase tracking-[0.2em]">About_Me:</div>
+						<p className="text-base md:text-lg text-zinc-50 font-mono leading-tight tracking-tighter">
+							{personalInfo.bio}
+						</p>
+					</div>
+
+					<div className="space-y-6">
+						<div className="text-[10px] font-mono text-blue-500/40 mb-4 uppercase tracking-[0.2em]">Philosophy:</div>
+						<div className="space-y-8">
+							{philosophy.slice(0, 2).map((point, i) => (
+								<div key={i} className="relative pl-12 group">
+									<span className="absolute left-0 top-0 text-blue-500 font-mono text-[10px] bg-blue-500/20 px-2 py-1 border border-blue-500/30 group-hover:bg-blue-500/30 transition-all font-bold">
+										0{i + 1}
+									</span>
+									<p className="text-base md:text-lg text-zinc-50 group-hover:text-blue-400 transition-colors leading-relaxed font-mono tracking-tight">
+										{point}
 									</p>
 								</div>
-							</div>
-						</AsciiBox>
-					</div>
-					<div>
-						<p className="text-zinc-500 text-[10px] font-mono mb-4">DEPLOYMENT_STRATEGY:</p>
-						<ul className="space-y-4">
-							{philosophy.map((point, i) => (
-								<li key={i} className="flex gap-4 items-start group">
-									<span className="text-blue-500 font-mono text-[10px] mt-1 shrink-0 bg-blue-500/10 px-1">0{i + 1}</span>
-									<span className="text-xs text-zinc-400 group-hover:text-zinc-200 transition-colors leading-relaxed">
-										{point}
-									</span>
-								</li>
 							))}
-						</ul>
+						</div>
 					</div>
 				</div>
 			</div>
+
+			{/* Bottom Scroll Indicator - Fades on Scroll */}
+			<motion.div
+				style={{ opacity: scrollIndicatorOpacity }}
+				className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+			>
+				<div className="text-[10px] font-mono uppercase tracking-widest text-blue-500/50">Scroll_to_explore</div>
+				<div className="w-[1px] h-12 bg-gradient-to-b from-blue-500/50 to-transparent" />
+			</motion.div>
 		</section>
 	);
 };

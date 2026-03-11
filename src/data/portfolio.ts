@@ -3,8 +3,8 @@
 export const personalInfo = {
 	name: 'Darasimi',
 	initials: 'Ka',
-	role: 'Go Backend Developer',
-	bio: 'I build resilient backend systems and the tooling around them — the quiet infrastructure that keeps products running and engineers shipping fast.',
+	role: 'Backend Developer',
+	bio: 'I build resilient backend systems and the quiet infrastructure that keeps products running.',
 	email: 'kelanidarasimi9@gmail.com',
 	socials: {
 		github: 'https://github.com/lupppig',
