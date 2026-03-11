@@ -31,11 +31,11 @@ export const interests = [
 
 export const projects = [
 	{
-		title: 'notifyctl',
-		description: 'A CLI-driven, gRPC-only notification and webhook delivery platform.',
-		problem: 'Simplifies reliable event delivery by providing delivery guarantees, retries, and backoff handling with real-time status monitoring.',
-		github: 'https://github.com/lupppig/notifyctl',
-		tags: ['Go', 'gRPC', 'NATS', 'Docker'],
+		title: 'cachio',
+		description: 'An HTTP caching library for Python supporting in-memory and persistent disk storage.',
+		problem: 'Reduces redundant network latency and bandwidth usage by caching full HTTP responses with an integrated LRU eviction strategy.',
+		github: 'https://github.com/lupppig/cachio',
+		tags: ['Python', 'Caching', 'uv'],
 	},
 	{
 		title: 'primer',
@@ -43,13 +43,6 @@ export const projects = [
 		problem: 'Simplifies the evaluation of complex, high-scale systems by simulating traffic, latency, and resource utilization in real-time.',
 		github: 'https://github.com/lupppig/primer',
 		tags: ['TypeScript', 'Python', 'Simulation', 'System Design'],
-	},
-	{
-		title: 'cachio',
-		description: 'An HTTP caching library for Python supporting in-memory and persistent disk storage.',
-		problem: 'Reduces redundant network latency and bandwidth usage by caching full HTTP responses with an integrated LRU eviction strategy.',
-		github: 'https://github.com/lupppig/cachio',
-		tags: ['Python', 'Caching', 'uv'],
 	},
 	{
 		title: 'dbackup',
@@ -64,6 +57,13 @@ export const projects = [
 		problem: 'Provides reliable task execution with lease-based heartbeats, dead task recovery, and a built-in web UI for monitoring and scaling worker pools.',
 		github: 'https://github.com/lupppig/skedulr',
 		tags: ['Go', 'Redis', 'Scheduler', 'Dashboard'],
+	},
+	{
+		title: 'notifyctl',
+		description: 'A CLI-driven, gRPC-only notification and webhook delivery platform.',
+		problem: 'Simplifies reliable event delivery by providing delivery guarantees, retries, and backoff handling with real-time status monitoring.',
+		github: 'https://github.com/lupppig/notifyctl',
+		tags: ['Go', 'gRPC', 'NATS', 'Docker'],
 	},
 ];
 
