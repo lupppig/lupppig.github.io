@@ -59,8 +59,8 @@ export const ThreeAscii: React.FC = () => {
 	}, []);
 
 	return (
-		<div className="fixed bottom-10 right-10 z-0 pointer-events-none opacity-40">
-			<pre className="text-[8px] md:text-[12px] leading-[8px] md:leading-[12px] font-mono text-zinc-500/50 whitespace-pre">
+		<div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none opacity-40">
+			<pre className="text-[8px] md:text-[12px] leading-[8px] md:leading-[12px] font-mono text-zinc-500/50 whitespace-pre text-center">
 				{ascii}
 			</pre>
 		</div>
