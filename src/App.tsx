@@ -3,6 +3,7 @@ import { Projects } from './sections/Projects';
 import { Contact } from './sections/Contact';
 import { DynamicAscii } from './components/DynamicAscii';
 import { ThreeScene } from './components/ThreeScene';
+import { ThreeAscii } from './components/ThreeAscii';
 
 function App() {
 	return (
@@ -10,6 +11,7 @@ function App() {
 			{/* High-tech Background Layer */}
 			<DynamicAscii />
 			<ThreeScene />
+			<ThreeAscii />
 
 			{/* Overlay Effects */}
 			<div className="scanner-line" />
