@@ -55,7 +55,7 @@ export const CustomCursor: React.FC = () => {
 					height: isPointer ? '32px' : '20px',
 				}}
 				transition={{
-					opacity: { repeat: Infinity, duration: 1.0, ease: "steps(2)" },
+					opacity: { repeat: Infinity, duration: 1.0 },
 					scale: { type: 'spring', stiffness: 300, damping: 20 },
 					backgroundColor: { duration: 0.2 },
 					width: { duration: 0.2 },
