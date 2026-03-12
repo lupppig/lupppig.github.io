@@ -2,6 +2,7 @@ import { Hero } from './sections/Hero';
 import { Projects } from './sections/Projects';
 import { Contact } from './sections/Contact';
 import { ThreeScene } from './components/ThreeScene';
+import { GlassOverlay } from './components/GlassOverlay';
 import { CustomCursor } from './components/CustomCursor';
 
 function App() {
@@ -9,6 +10,9 @@ function App() {
 		<div className="relative min-h-screen bg-[#050505]">
 			{/* High-tech 3D ASCII World */}
 			<ThreeScene />
+			
+			{/* Glass Layer to reduce background distraction */}
+			<GlassOverlay />
 
 			{/* Overlay Effects */}
 			<div className="scanner-line opacity-20" />

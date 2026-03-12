@@ -18,7 +18,7 @@ export const Hero: React.FC = () => {
 	return (
 		<section id="home" className="min-h-screen flex flex-col justify-center relative px-6 md:px-12 lg:px-24">
 			{/* Top Metadata HUD */}
-			<div className="absolute top-12 left-6 md:left-12 lg:left-24 right-6 md:right-12 lg:right-24 flex justify-between items-start font-mono text-[10px] text-blue-500/50 uppercase tracking-widest">
+			<div className="absolute top-12 left-6 md:left-12 lg:left-24 right-6 md:right-12 lg:right-24 flex justify-between items-start font-mono text-[10px] text-blue-500/20 uppercase tracking-widest">
 				<div className="space-y-1">
 					<div>System_Core: v1.0.4-stable</div>
 					<div>Memory_Usage: 24% [||........]</div>
@@ -50,16 +50,16 @@ export const Hero: React.FC = () => {
 
 				{/* Identity */}
 				<div className="mb-12">
-					<h1 className="text-5xl md:text-8xl mb-2 tracking-tighter text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+					<h1 className="text-5xl md:text-8xl mb-2 tracking-tighter text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.4)]">
 						<HackerText text={personalInfo.name.toUpperCase()} speed={100} />
 					</h1>
 					<div className="flex items-center gap-4 text-zinc-500 font-mono text-sm">
 						<span className="text-blue-500 animate-pulse">{">"}</span>
-						<span className="text-zinc-200 font-bold tracking-widest">{personalInfo.role.toUpperCase()}</span>
+						<span className="text-white font-bold tracking-widest bg-blue-500/10 px-2 py-0.5 border border-blue-500/20">{personalInfo.role.toUpperCase()}</span>
 						<span className="w-8 h-[1px] bg-zinc-800" />
 						<div className="flex gap-2">
 							{primaryTechs.map((tech) => (
-								<span key={tech.name} className="text-[10px] text-blue-500/40 uppercase">[{tech.name}]</span>
+								<span key={tech.name} className="text-[11px] text-blue-400/80 font-bold uppercase tracking-wider">[{tech.name}]</span>
 							))}
 						</div>
 					</div>
@@ -67,22 +67,22 @@ export const Hero: React.FC = () => {
 
 				{/* Bio & Philosophy Grid */}
 				<div className="grid md:grid-cols-2 gap-16 mt-12 pt-12 border-t border-blue-500/10">
-					<div>
-						<div className="text-[10px] font-mono text-blue-500/40 mb-4 uppercase tracking-[0.2em]">About_Me:</div>
-						<p className="text-base md:text-lg text-zinc-50 font-mono leading-tight tracking-tighter">
+					<div className="bg-blue-500/5 p-6 rounded-lg border border-blue-500/10 backdrop-blur-sm">
+						<div className="text-[10px] font-mono text-blue-400 mb-4 uppercase tracking-[0.2em] font-bold">About_Me:</div>
+						<p className="text-base md:text-lg text-zinc-100 font-mono leading-tight tracking-tighter">
 							{personalInfo.bio}
 						</p>
 					</div>
 
 					<div className="space-y-6">
-						<div className="text-[10px] font-mono text-blue-500/40 mb-4 uppercase tracking-[0.2em]">Philosophy:</div>
+						<div className="text-[10px] font-mono text-blue-400 mb-4 uppercase tracking-[0.2em] font-bold">Philosophy:</div>
 						<div className="space-y-8">
 							{philosophy.slice(0, 2).map((point, i) => (
 								<div key={i} className="relative pl-12 group">
-									<span className="absolute left-0 top-0 text-blue-500 font-mono text-[10px] bg-blue-500/20 px-2 py-1 border border-blue-500/30 group-hover:bg-blue-500/30 transition-all font-bold">
+									<span className="absolute left-0 top-0 text-blue-400 font-mono text-[10px] bg-blue-500/20 px-2 py-1 border border-blue-500/30 group-hover:bg-blue-500/30 transition-all font-bold">
 										0{i + 1}
 									</span>
-									<p className="text-base md:text-lg text-zinc-50 group-hover:text-blue-400 transition-colors leading-relaxed font-mono tracking-tight">
+									<p className="text-base md:text-lg text-zinc-100 group-hover:text-blue-300 transition-colors leading-relaxed font-mono tracking-tight">
 										{point}
 									</p>
 								</div>
