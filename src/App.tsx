@@ -1,29 +1,15 @@
 import { Hero } from './sections/Hero';
 import { Projects } from './sections/Projects';
 import { Contact } from './sections/Contact';
-import { ThreeScene } from './components/ThreeScene';
-import { GlassOverlay } from './components/GlassOverlay';
-import { CustomCursor } from './components/CustomCursor';
 
 function App() {
 	return (
-		<div className="relative min-h-screen bg-[#050505]">
-			{/* High-tech 3D ASCII World */}
-			<ThreeScene />
-			
-			{/* Glass Layer to reduce background distraction */}
-			<GlassOverlay />
-
-			{/* Overlay Effects */}
-			<div className="scanner-line opacity-20" />
-			<div className="crt-overlay opacity-10" />
-
-			<main className="relative z-10 max-w-7xl mx-auto">
+		<div className="min-h-screen bg-black text-white selection:bg-white selection:text-black">
+			<main className="max-w-5xl mx-auto px-6 py-24 space-y-32">
 				<Hero />
 				<Projects />
 				<Contact />
 			</main>
-			<CustomCursor />
 		</div>
 	);
 }
